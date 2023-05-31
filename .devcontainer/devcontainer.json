@@ -1,0 +1,75 @@
+{
+    "name": "DevContainer 이름",
+    // 컨테이너 기본 이미지 설정
+    "build": {
+        "dockerfile": "./Dockerfile",
+        "context": ".",
+        "args": {
+            "VARIANT": "7.0"
+        }
+    },
+    // 포트 포워딩
+    "forwardPorts": [ 8000 ],
+    // 추가 기능
+    "features": {
+        // Python
+        "ghcr.io/devcontainers/features/python:latest": {
+            "version": "3.10"
+        },
+
+        // GitHub CLI
+        "ghcr.io/devcontainers/features/github-cli:latest": {
+          "version": "latest"
+        },
+    
+        // node.js
+        "ghcr.io/devcontainers/features/node:latest": {
+          "version": "lts",
+          "nodeGypDependencies": true,
+          "nvmInstallPath": "/usr/local/share/nvm"
+        },
+    
+        // common utilities
+        "ghcr.io/devcontainers/features/common-utils:latest": {
+          "installZsh": true,
+          "installOhMyZsh": true,
+          "upgradePackages": true,
+          "username": "vscode",
+          "uid": "1000",
+          "gid": "1000"
+        }
+    },
+    // 추가 기능 설치 순서
+    "overrideFeatureInstallOrder": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ],
+    // 코드스페이스 커스터마이징
+    "customizations": {
+        // VS Code 익스텐션
+        "extensions": [
+            // GitHub 코파일럿 관련
+            "GitHub.copilot",
+            "GitHub.copilot-labs",
+            "GitHub.copilot-chat",
+
+            // Python 관련
+            "ms-python.python",
+            "VisualStudioExptTeam.vscodeintellicode"
+
+        ],
+        // VS Code 환경 설정
+        "settings": {
+            "editor.minimap.enabled": false,
+            "explorer.sortOrder": "type"
+        }
+    },
+
+    // post-create.sh 스크립트 실행 명령어
+    // onCreateCommand 바로 실행
+    // postCreateCommand 다 끝나고 실행
+    "onCreateCommand": "/bin/bash ./.devcontainer/post-create.sh > ~/post-create.log",
+
+    // DevContainer 사용자 계정
+    // root로 접속하지 않도록
+    "remoteUser": "vscode"
+}
