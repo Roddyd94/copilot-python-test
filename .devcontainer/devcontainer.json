@@ -5,7 +5,7 @@
         "dockerfile": "./Dockerfile",
         "context": ".",
         "args": {
-            "VARIANT": "7.0"
+            "VARIANT": "3.10-bullseye"
         }
     },
     // 포트 포워딩
