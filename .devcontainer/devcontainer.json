@@ -45,22 +45,24 @@
     ],
     // 코드스페이스 커스터마이징
     "customizations": {
-        // VS Code 익스텐션
-        "extensions": [
-            // GitHub 코파일럿 관련
-            "GitHub.copilot",
-            "GitHub.copilot-labs",
-            "GitHub.copilot-chat",
+        "vscode": {
+            // VS Code 익스텐션
+            "extensions": [
+                // GitHub 코파일럿 관련
+                "GitHub.copilot",
+                "GitHub.copilot-labs",
+                "GitHub.copilot-chat",
 
-            // Python 관련
-            "ms-python.python",
-            "VisualStudioExptTeam.vscodeintellicode"
+                // Python 관련
+                "ms-python.python",
+                "VisualStudioExptTeam.vscodeintellicode"
 
-        ],
-        // VS Code 환경 설정
-        "settings": {
-            "editor.minimap.enabled": false,
-            "explorer.sortOrder": "type"
+            ],
+            // VS Code 환경 설정
+            "settings": {
+                "editor.minimap.enabled": false,
+                "explorer.sortOrder": "type"
+            }
         }
     },
 
